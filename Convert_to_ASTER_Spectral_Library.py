@@ -22,9 +22,14 @@ inMetaFile = open(inMetaFileName,'r') #Open metadata file
 inASDFile = open(inASDFileName,'r') #Open ASD spectra file
 inNicoletFile = open(inNicoletFileName,'r') #Open Nicolet spectra file
 
+numFile = 0 #Keeps a counter of the number of files or rows
+
 for line in inMetaFile: #Loop through the Metadata file
     strLine = line.split(",");
     print (strLine)
+
+    if numFile = 0: #if this is the first row
+        header = strLine #Store the first line for output files
     
 
 
