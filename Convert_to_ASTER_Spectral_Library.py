@@ -10,10 +10,15 @@
 # 3) Nicolet Spectra csv - must have the same order as metadata
 # 4) Output directory for ASTER spectral library files
 # INPUTS---------------------------------------------------------------------
-inMetaFileName = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Example_Metadata.csv"
-inASDFileName = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Example_Spectra_ASD.csv"
-inNicoletFileName = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Example_Spectra_Nicolet.csv"
-outDir = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Output Spectral Libraries\\"
+##inMetaFileName = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Example_Metadata.csv"
+##inASDFileName = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Example_Spectra_ASD.csv"
+##inNicoletFileName = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Example_Spectra_Nicolet.csv"
+##outDir = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Output Spectral Libraries\\"
+
+inMetaFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Metadata.csv"
+inASDFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Spectra_ASD.csv"
+inNicoletFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Spectra_Nicolet.csv"
+outDir = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\ASTER Spectral Library Files\\"
 # ---------------------------------------------------------------------
 
 import numpy as np #import numpy for array manipulation
@@ -66,17 +71,19 @@ for row in range(len(arrayMeta)):
     outFile = open(outFileName,'w') #open file
 
     #Outputing Metadata
-    for i in range(len(arrayMeta[row])-1): #loop through metadata fields
+    for i in range(len(headersMeta)-1): #loop through metadata fields
         outFile.write(headersMeta[i] + ': ' + arrayMeta[row][i] + '\n')
 
-    for j in range(1,len(arrayASD[row])-1): #loop through asd fields
-        outFile.write(headersASD[j] + "   " + arrayASD[row][j] + '\n')
+    for j in range(1,len(headersASD)-1): #loop through asd fields
+        outFile.write(headersASD[j] + "   " + ("{0:.7s}".format(arrayASD[row][j])) + '\n')
 
-    for k in range(1,len(arrayNicolet[row])-1): #loop through nicolet fields
+    for k in range(1,len(headersNicolet)-1): #loop through nicolet fields
         if arrayNicolet[row][k] != "":
-            outFile.write(headersNicolet[k] + "   " + arrayNicolet[row][k] + '\n')
+            outFile.write(headersNicolet[k] + "   " + ("{0:.7s}".format(arrayNicolet[row][k])) + '\n')
 
-    outFile.close() #close file so it can be reused at the beginning 
+    outFile.close() #close file so it can be reused at the beginning
+
+print('Finished Converting to ASTER Spectral Library Files')
     
 
 
