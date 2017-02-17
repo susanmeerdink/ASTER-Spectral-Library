@@ -75,13 +75,13 @@ for row in range(len(arrayMeta)):
         outFile = open(outFileName,'w') #open file
 
     #Outputing Metadata
-    for i in range(len(headersMeta)-1): #loop through metadata fields
+    for i in range(len(headersMeta)): #loop through metadata fields
         outFile.write(headersMeta[i] + ': ' + arrayMeta[row][i] + '\n')
 
-    for j in range(1,len(headersASD)-1): #loop through asd fields
+    for j in range(1,len(headersASD)): #loop through asd fields
         outFile.write(headersASD[j] + "   " + ("{0:.7s}".format(arrayASD[row][j])) + '\n')
 
-    for k in range(1,len(headersNicolet)-1): #loop through nicolet fields
+    for k in range(1,len(headersNicolet)): #loop through nicolet fields
         if arrayNicolet[row][k] != "":
             outFile.write(headersNicolet[k] + "   " + ("{0:.7s}".format(arrayNicolet[row][k])) + '\n')
 
