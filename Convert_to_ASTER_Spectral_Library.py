@@ -15,9 +15,9 @@
 ##inNicoletFileName = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Example_Spectra_Nicolet.csv"
 ##outDir = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Output Spectral Libraries\\"
 
-inMetaFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Metadata.csv"
-inASDFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Spectra_ASD.csv"
-inNicoletFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Spectra_Nicolet.csv"
+inMetaFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\NPV_Misc_Metadata.csv"
+inASDFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\NPV_Misc_Spectra_ASD.csv"
+inNicoletFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\NPV_Misc_Spectra_Nicolet.csv"
 outDir = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\ASTER Spectral Library Files\\"
 # ---------------------------------------------------------------------
 
@@ -67,8 +67,12 @@ for line in inNicoletFile: #loop through Nicolet file
 
 ## OUTPUTING DATA
 for row in range(len(arrayMeta)):
-    outFileName = outDir + arrayMeta[row][0] + '-' + arrayMeta[row][19]+'.txt' #output file name is currently name-sampleID.txt
-    outFile = open(outFileName,'w') #open file
+    if 'non' in arrayMeta[row][1]: #if it's non photosynthetic vegetation spectra name file this way
+        outFileName = outDir + arrayMeta[row][1] + '.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.'+ arrayMeta[row][4] + '.' + arrayMeta[row][5] +'.spectrum.txt' #output file name is currently name-sampleID.txt
+        outFile = open(outFileName,'w') #open file
+    else:    #if it's vegetation spectra name file this way
+        outFileName = outDir + arrayMeta[row][1] + '.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.'+ arrayMeta[row][4] + '.spectrum.txt' #output file name is currently name-sampleID.txt
+        outFile = open(outFileName,'w') #open file
 
     #Outputing Metadata
     for i in range(len(headersMeta)-1): #loop through metadata fields
