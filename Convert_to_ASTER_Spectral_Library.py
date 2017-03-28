@@ -49,20 +49,15 @@ for line in inMetaFile: # Loop through the Metadata file
         headersMeta.insert(descriptIndex + 5,' ')
         numRow = numRow + 1 # advance counter
     else: # if it isn't the first row              
-        descript = strLine[descriptIndex]
-##        strTemp = ['None']*25
-##        strTemp[0:descriptIndex - 1] = strLine[0:descriptIndex]
-##        strTemp[descriptIndex] = descript[0:55]
-##        strTemp[descriptIndex + 1] = descript[55:123]
-##        strTemp[descriptIndex + 2] = descript[123:191]
-##        strTemp[descriptIndex + 3] = descript[191:259]
-##        strTemp[descriptIndex + 4] = descript[259:327]
-##        strTemp[descriptIndex + 5] = descript[327:-1]
-##        strTemp[16:-1] = strLine[descriptIndex + 1:addinfoIndex]
-        strTemp = []
-        strTemp.append(strLine[0:descriptIndex])
-        strTemp.append(textwrap.wrap(descript,initial_indent = 'Description: '))
-        strTemp.append(strLine[descriptIndex + 1:addinfoIndex])
+        strTemp = ['None']*25
+        descript = textwrap.wrap(strLine[descriptIndex],initial_indent = 'Description: ')
+        strTemp[0:descriptIndex - 1] = strLine[0:descriptIndex]
+        for i in range(0,6):
+            if i < len(descript):
+                strTemp[descriptIndex + i] = descript[i]
+            else:
+                strTemp[descriptIndex + i] = ''
+        strTemp[16:-1] = strLine[descriptIndex + 1:addinfoIndex]
         arrayMeta.append(strTemp)
 
 numRow = 0 # restart counter
@@ -81,7 +76,7 @@ for line in inNicoletFile: #loop through Nicolet file
     strLine = line.split(",")
 
     if numRow == 0: # if this is the first row
-        strLine[len(strLine)-1] = strLine[len(strLine)-1].rstrip('\n') #removing newline character from last field
+        strLine[len(strLine)- 1] = strLine[len(strLine)- 1].rstrip('\n') #removing newline character from last field
         headersNicolet = strLine #Store the first line for output files
         numRow = numRow + 1 # advance counter
     else: # if it isn't the first row
@@ -92,23 +87,23 @@ for row in range(len(arrayMeta)):
     if 'non' in arrayMeta[row][1]: # if it's non photosynthetic vegetation spectra name file this way
         # Output file name format: location.instrument.type.class.genus.species.samplenumber.filetype.txt
         # Example file name format: jpl.asdnicolet.npv.bark.abies.concolor.vh311.spectrum.txt
-        outFileName = outDir + 'jpl.asdnicolet.npvegetation.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.spectrum.txt'
-        addinfoLine = 'jpl.asdnicolet.npvegetation.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.ancillary.txt'
+        outFileName = outDir + ('jpl.asdnicolet.npvegetation.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.spectrum.txt').lower()
+        addinfoLine = ('jpl.asdnicolet.npvegetation.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.ancillary.txt').lower()
         outFile = open(outFileName,'w') #open file
     else:    # if it's vegetation spectra name file this way
         # Output file name format: location.instrument.type.class.genus.species.samplenumber.filetype.txt
         # Example file name format: jpl.asdnicolet.vegetation.class.aloe.bainesii.jpl057.spectrum.txt
-        outFileName = outDir + 'jpl.asdnicolet.vegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.spectrum.txt'
-        addinfoLine = 'jpl.asdnicolet.vegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.ancillary.txt'
+        outFileName = outDir + ('jpl.asdnicolet.vegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.spectrum.txt').lower()
+        addinfoLine = ('jpl.asdnicolet.vegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.ancillary.txt').lower()
         outFile = open(outFileName,'w') # open file
 
     #Outputing Metadata
     for i in range(len(headersMeta)): # loop through metadata fields
-        if i == len(headersMeta):
+        if i == len(headersMeta) - 1:
             outFile.write(headersMeta[i] + ': ' + addinfoLine + '\n')
             outFile.write('\n')
-        elif i in range(descriptIndex + 1, descriptIndex + 6):
-            outFile.write(headersMeta[i] + arrayMeta[row][i] + '\n')
+        elif i in range(descriptIndex, descriptIndex + 6):
+            outFile.write(arrayMeta[row][i] + '\n')
         else:
             outFile.write(headersMeta[i] + ': ' + arrayMeta[row][i] + '\n')
 
