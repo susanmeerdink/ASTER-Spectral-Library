@@ -93,8 +93,8 @@ for row in range(len(arrayMeta)):
     else:    # if it's vegetation spectra name file this way
         # Output file name format: location.instrument.type.class.genus.species.samplenumber.filetype.txt
         # Example file name format: jpl.asdnicolet.vegetation.class.aloe.bainesii.jpl057.spectrum.txt
-        outFileName = outDir + (arrayMeta[row][6] + '.asdnicolet.vegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.spectrum.txt').lower()
-        addinfoLine = (arrayMeta[row][6] + '.asdnicolet.vegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.ancillary.txt').lower()
+        outFileName = outDir + (arrayMeta[row][6] + '.asdnicolet.vegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.spectrum.txt').lower()
+        addinfoLine = (arrayMeta[row][6] + '.asdnicolet.vegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.ancillary.txt').lower()
         outFile = open(outFileName,'w') # open file
 
     #Outputing Metadata
@@ -116,7 +116,7 @@ for row in range(len(arrayMeta)):
 
     outFile.close() # close file so it can be reused at the beginning
 
-print('Finished Converting to ASTER Spectral Library Files')
+print 'Finished Converting %s samples to ECOSTRESS spectral library files' %len(arrayMeta)
     
 
 
