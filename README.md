@@ -37,7 +37,7 @@ Also see Example_Metadata.csv
 	22. First X Value
 	23. Last X Value
 	24. Number of X Values
-	25. Additional Information
+	25. Additional Information: if value is TRUE this cateogory will be set to the ancillary text file name
 	26. Empty Space
 	27. List of Spectra Start on this line
 	
