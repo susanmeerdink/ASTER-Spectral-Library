@@ -1,5 +1,5 @@
 # ASTER-Spectral-Library
-Code associated with getting spectral libraries into the ASTER spectral library format
+Code associated with getting spectral libraries into the ASTER spectral library format (Soon to be renamed ECOSTRESS spectral library). Current library can be found here: https://speclib.jpl.nasa.gov/. In the library, each sample is a separate text file that contains 26 lines of header or metadata values and then the spectra associated with that sample. This repository is for vegetation and non-photosynthetic vegetation (NPV) spectral library files.
 
 ## Input Spectra Format
 First row is wavelength
@@ -8,36 +8,38 @@ See Example_Spectra_ASD.csv and Example_Spectra_Nicolet.csv
 If a sample does not have an associated ASD or Nicolet spectrum, create a row with that sample's ID but leave wavelength columns empty.
 
 ## Input Metadata Format
-See Metadata_Template for a csv format. Each row is a spectrum's metadata, while each column is a metadata field
+See Metadata_Template for a csv format. Each row is a samples's metadata, while each column is a metadata field
 Also see Example_Metadata.csv
 
-### Metadata Fields with Explanations:
-  * `Name (REQ): 	
-  * `Description (REQ) :
-  * `Affiliation (REQ): 	
-  * `Measurement Type (Lab, Field, Remote) (REQ):	
-  * `Instrument (REQ):	
-  * `Illumination Geometry (REQ) :		
-  * `Observation Geometry w/ FOV and Distance (REQ) :	
-  * `Calibration (eg: type of reflectance, spectralon, gold)  (REQ):	
-  * `Location (lat, lon, Datum)  (REQ):	
-  * `Collection Date (REQ) :	
-  * `Kingdom :	
-  * `Family :	
-  * `Genus : 	
-  * `species :
-  * `Scale (eg: leaf, canopy, mixed) :
-  * `Material Age :
-  * `Height (eg: canopy height, water depth) :
-  * `Chemistry (eg: nitrogen, lignin, pigments) :		
-  * `Biophysical Properties (eg: specific leaf area, thickness) :		
-  * `Sample No. :
-  * `Additional Information : 		
-  * `Reference Document :	
-  * `Point of Contact :		
-  * `Acknowledgement : 
-  * `Column names (eg: wavelength, reflectance, fwhm) (REQ) :		
-  * `Column units (eg: nanometers, percent, nanometers) (REQ):	
-  
+### Metadata Fields:
+	* The numbering donates which line the metadata values can be found
+	1. Name
+	2. Type
+	3. Class
+	4. Genus
+	5. species
+	6. Sample No.
+	7. Owner
+	8. Wavelength Range
+	9. Origin
+	10. Collection Date
+	11. Description
+	12. Description
+	13. Description
+	14. Description
+	15. Description
+	16. Description
+	17. Measurement
+	18. First Column
+	19. Second Column
+	20. X Units
+	21. Y Units
+	22. First X Value
+	23. Last X Value
+	24. Number of X Values
+	25. Additional Information
+	26. Empty Space
+	27. List of Spectra Start on this line
+	
 NOTES:
 None of the fields can have a comma as the code splits columns on the comma.
