@@ -11,6 +11,9 @@ If a sample does not have an associated ASD or Nicolet spectrum, create a row wi
 See Metadata_Template for a csv format. Each row is a samples's metadata, while each column is a metadata field
 Also see Example_Metadata.csv
 
+## Input Ancillary Data Format
+See Example_Ancillary.csv for example format. The first column of ancillary data must be Additional Information with a value of TRUE or FALSE for each sample (aka row). In addition, Name, Type, Class, Genus, Species, Sample No., and Owner must also be included for proper naming of ancillary data file. This file is to include ANY information that did not fit into the ASTER/ECOSTRESS metadata fields. You can have as much additional text and values as neccessary. Each column of ancillary data will be a new row in the ancillary text file. 
+
 ### Metadata Fields:
 	* The numbering donates which line the metadata values can be found
 	1. Name
