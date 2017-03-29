@@ -15,9 +15,9 @@
 ##inNicoletFileName = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Example_Spectra_Nicolet.csv"
 ##outDir = "C:\\Users\\Susan\\Documents\\GitHub\\ASTER-Spectral-Library\\Output Spectral Libraries\\"
 
-inMetaFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Metadata.csv"
-inASDFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Spectra_ASD.csv"
-inNicoletFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\Huntington_Gardens_Spectra_Nicolet.csv"
+inMetaFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\HyspIRI_Metadata.csv"
+inASDFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\HyspIRI_Spectra_ASD.csv"
+inNicoletFileName = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\Input Spectral Library Files\\HyspIRI_Spectra_Nicolet.csv"
 outDir = "F:\\Dropbox\\Analysis\\ASTER Spectral Library\\ASTER Spectral Library Files\\"
 # ---------------------------------------------------------------------
 
@@ -49,15 +49,14 @@ for line in inMetaFile: # Loop through the Metadata file
         headersMeta.insert(descriptIndex + 5,' ')
         numRow = numRow + 1 # advance counter
     else: # if it isn't the first row              
-        strTemp = ['None']*25
+        strTemp = strLine[0:descriptIndex]
         descript = textwrap.wrap(strLine[descriptIndex],initial_indent = 'Description: ')
-        strTemp[0:descriptIndex - 1] = strLine[0:descriptIndex]
         for i in range(0,6):
             if i < len(descript):
-                strTemp[descriptIndex + i] = descript[i]
+                strTemp.append(descript[i])
             else:
-                strTemp[descriptIndex + i] = ''
-        strTemp[16:-1] = strLine[descriptIndex + 1:addinfoIndex]
+                strTemp.append(' ')
+        strTemp = strTemp + strLine[descriptIndex + 1:addinfoIndex + 1]
         arrayMeta.append(strTemp)
 
 numRow = 0 # restart counter
@@ -87,8 +86,8 @@ for row in range(len(arrayMeta)):
     if 'non' in arrayMeta[row][1]: # if it's non photosynthetic vegetation spectra name file this way
         # Output file name format: location.instrument.type.class.genus.species.samplenumber.filetype.txt
         # Example file name format: jpl.asdnicolet.npv.bark.abies.concolor.vh311.spectrum.txt
-        outFileName = outDir + (arrayMeta[row][6] + '.asdnicolet.npvegetation.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.spectrum.txt').lower()
-        addinfoLine = (arrayMeta[row][6] + '.asdnicolet.npvegetation.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.ancillary.txt').lower()
+        outFileName = outDir + (arrayMeta[row][6] + '.asdnicolet.npvegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.spectrum.txt').lower()
+        addinfoLine = (arrayMeta[row][6] + '.asdnicolet.npvegetation.' + arrayMeta[row][2] + '.' + arrayMeta[row][3] + '.' + arrayMeta[row][4] + '.' + arrayMeta[row][5] + '.ancillary.txt').lower()
         outFile = open(outFileName,'w') #open file
     else:    # if it's vegetation spectra name file this way
         # Output file name format: location.instrument.type.class.genus.species.samplenumber.filetype.txt
@@ -100,8 +99,12 @@ for row in range(len(arrayMeta)):
     #Outputing Metadata
     for i in range(len(headersMeta)): # loop through metadata fields
         if i == len(headersMeta) - 1:
-            outFile.write(headersMeta[i] + ': ' + addinfoLine + '\n')
-            outFile.write('\n')
+            if 'TRUE' in arrayMeta[row][i]:
+                outFile.write(headersMeta[i] + ': ' + addinfoLine + '\n')
+                outFile.write('\n')
+            else:
+                outFile.write(headersMeta[i] + ': \n')
+                outFile.write('\n')
         elif i in range(descriptIndex, descriptIndex + 6):
             outFile.write(arrayMeta[row][i] + '\n')
         else:
@@ -116,7 +119,7 @@ for row in range(len(arrayMeta)):
 
     outFile.close() # close file so it can be reused at the beginning
 
-print 'Finished Converting %s samples to ECOSTRESS spectral library files' %len(arrayMeta)
+print 'Finished converting %s samples to ECOSTRESS spectral library files' %len(arrayMeta)
     
 
 
