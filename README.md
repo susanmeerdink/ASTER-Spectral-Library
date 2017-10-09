@@ -1,5 +1,5 @@
 # ASTER-Spectral-Library
-Code associated with getting spectral libraries into the ASTER spectral library format (Soon to be renamed ECOSTRESS spectral library). Current library can be found here: https://speclib.jpl.nasa.gov/. In the library, each sample is a separate text file that contains 26 lines of header or metadata values and then the spectra associated with that sample. This repository is for vegetation and non-photosynthetic vegetation (NPV) spectral library files.
+Code associated with getting spectral libraries into the ASTER spectral library format (Soon to be renamed ECOSTRESS spectral library). Current library can be found here: https://speclib.jpl.nasa.gov/. In the library, each sample is a separate text file that contains 20 lines of header or metadata values and then the spectra associated with that sample. This repository is for vegetation and non-photosynthetic vegetation (NPV) spectral library files.
 
 ## Input Spectra Format
 First row is wavelength
@@ -27,22 +27,17 @@ See Example_Ancillary.csv for example format. The first column of ancillary data
 	9. Origin
 	10. Collection Date
 	11. Description
-	12. Description
-	13. Description
-	14. Description
-	15. Description
-	16. Description
-	17. Measurement
-	18. First Column
-	19. Second Column
-	20. X Units
-	21. Y Units
-	22. First X Value
-	23. Last X Value
-	24. Number of X Values
-	25. Additional Information: if value is TRUE this cateogory will be set to the ancillary text file name
-	26. Empty Space
-	27. List of Spectra Start on this line
+	12. Measurement
+	13. First Column
+	14. Second Column
+	15. X Units
+	16. Y Units
+	17. First X Value
+	18. Last X Value
+	19. Number of X Values
+	20. Additional Information: if value is TRUE this cateogory will be set to the ancillary text file name
+	21. Empty Space
+	22. List of Spectra Start on this line
 	
 NOTES:
 None of the fields can have a comma as the code splits columns on the comma.
