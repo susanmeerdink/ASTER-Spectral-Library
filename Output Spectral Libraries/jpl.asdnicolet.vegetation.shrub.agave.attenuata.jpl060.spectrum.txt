@@ -2170,7 +2170,6 @@ Additional Information: jpl.asdnicolet.vegetation.shrub.agave.attenuata.jpl060.a
  2.498	11.509
  2.499	11.407
  2.500	11.546
-	
  2.500	 2.442
  2.501	 2.469
  2.503	 2.468
@@ -3909,4 +3908,3 @@ Additional Information: jpl.asdnicolet.vegetation.shrub.agave.attenuata.jpl060.a
 15.296	 3.951
 15.341	 4.369
 15.387	 0.000
-	   59.

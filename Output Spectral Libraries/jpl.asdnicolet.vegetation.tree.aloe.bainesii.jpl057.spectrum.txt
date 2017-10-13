@@ -2170,7 +2170,6 @@ Additional Information: jpl.asdnicolet.vegetation.tree.aloe.bainesii.jpl057.anci
  2.498	 4.853
  2.499	 3.897
  2.500	 3.579
-	
  2.500	 2.323
  2.501	 2.350
  2.503	 2.359
@@ -3909,4 +3908,3 @@ Additional Information: jpl.asdnicolet.vegetation.tree.aloe.bainesii.jpl057.anci
 15.296	 2.016
 15.341	 2.486
 15.387	 0.000
-	   62.
