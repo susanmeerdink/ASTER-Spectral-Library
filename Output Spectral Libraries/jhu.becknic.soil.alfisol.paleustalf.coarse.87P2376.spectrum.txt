@@ -17,7 +17,7 @@ Y Units:  Reflectance (percent)
 First X Value:  14.0112
 Last X Value:  0.4000
 Number of X Values:  2844
-Additional information:  87P2376a.txt
+Additional Information: jhu.becknic.soil.alfisol.paleustalf.coarse.87P2376.ancillary.txt
 
 14.011	 1.827
 13.973	 1.818

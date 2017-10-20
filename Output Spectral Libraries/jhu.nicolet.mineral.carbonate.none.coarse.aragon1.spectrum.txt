@@ -17,7 +17,7 @@ Y Units:  Reflectance (percent)
 First X Value:  25.0442
 Last X Value:  4.4055
 Number of X Values:  2287
-Additional Information: aragon1a.txt
+Additional Information: jhu.nicolet.mineral.carbonate.none.coarse.aragon1.ancillary.txt
 
 24.924	 1.888
 24.805	 1.539

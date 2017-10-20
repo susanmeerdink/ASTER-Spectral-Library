@@ -17,7 +17,7 @@ Y Units:  Reflectance (percent)
 First X Value:  25.0442
 Last X Value:  2.079
 Number of X Values:  2287
-Additional Information: dolomi3a.txt
+Additional Information: jhu.nicolet.mineral.carbonate.none.fine.dolomi3.ancillary.txt
 
 25.044	 1.899
 24.924	 1.892
