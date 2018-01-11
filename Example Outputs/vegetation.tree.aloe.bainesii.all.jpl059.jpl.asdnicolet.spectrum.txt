@@ -14,9 +14,9 @@ First Column: X
 Second Column: Y
 X Units: Wavelength (micrometer)
 Y Units: Reflectance (percentage)
-First X Value: 0.350
+First X Value: 0.35
 Last X Value: 15.387
-Number of X Values: 3889
+Number of X Values: 3888
 Additional Information: vegetation.tree.aloe.bainesii.all.jpl059.jpl.asdnicolet.ancillary.txt
 
  0.3500	 4.1090
@@ -2170,7 +2170,6 @@ Additional Information: vegetation.tree.aloe.bainesii.all.jpl059.jpl.asdnicolet.
  2.4980	 3.1260
  2.4990	 3.4940
  2.5000	 3.3500
- 2.5000	 1.7220
  2.5010	 1.7310
  2.5030	 1.7120
  2.5040	 1.6970

@@ -14,9 +14,9 @@ First Column: X
 Second Column: Y
 X Units: Wavelength (micrometer)
 Y Units: Reflectance (percentage)
-First X Value: 0.350
+First X Value: 0.35
 Last X Value: 15.387
-Number of X Values: 3889
+Number of X Values: 3888
 Additional Information: vegetation.shrub.agave.attenuata.all.jpl063.jpl.asdnicolet.ancillary.txt
 
  0.3500	 7.0850
@@ -2170,7 +2170,6 @@ Additional Information: vegetation.shrub.agave.attenuata.all.jpl063.jpl.asdnicol
  2.4980	 6.0090
  2.4990	 5.9950
  2.5000	 5.7330
- 2.5000	 2.6970
  2.5010	 2.6830
  2.5030	 2.6810
  2.5040	 2.7710

@@ -14,9 +14,9 @@ First Column: X
 Second Column: Y
 X Units: Wavelength (micrometer)
 Y Units: Reflectance (percentage)
-First X Value: 0.350
+First X Value: 0.35
 Last X Value: 15.387
-Number of X Values: 3889
+Number of X Values: 3888
 Additional Information: 
 
  0.3500	 6.2810
@@ -2170,7 +2170,6 @@ Additional Information:
  2.4980	 8.0300
  2.4990	 7.5990
  2.5000	 7.4340
- 2.5000	 5.3680
  2.5010	 5.3980
  2.5030	 5.3980
  2.5040	 5.4120
