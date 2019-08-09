@@ -1,5 +1,5 @@
 # ASTER-Spectral-Library
-Code associated with getting spectral libraries into the ASTER spectral library format (Soon to be renamed ECOSTRESS spectral library). Current library can be found here: https://speclib.jpl.nasa.gov/. In the library, each sample is a separate text file that contains 20 lines of header or metadata values and then the spectra associated with that sample. This repository is for vegetation and non-photosynthetic vegetation (NPV) spectral library files.
+Code associated with getting spectral libraries into the ECOSTRESS spectral library format (previously named ASTER spectral library). Current library can be found here: https://speclib.jpl.nasa.gov/. In the library, each sample's spectrum is a separate text file that contains 20 lines of header or metadata values and then the spectra associated with that sample. A sample could have been measured with two sensors (e.g. ASD and Nicolet) in which there will be two spectrum files associated with this sample. This repository is for vegetation and non-photosynthetic vegetation (NPV) spectral library files.
 
 ## Input Spectra Format
 First row is wavelength

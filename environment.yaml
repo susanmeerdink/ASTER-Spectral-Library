@@ -3,3 +3,4 @@ dependencies:
   - numpy
   - jupyter
   - python=2.7
+  - matplotlib

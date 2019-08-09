@@ -1,0 +1,19 @@
+Name: Microcline (Feldspar) (K,Na)AlSi_3O_8
+Type: Mineral
+Class: Silicate
+Subclass: Tectosilicate
+Particle Size: Medium
+Sample No.: TS-17A
+Owner: JPL
+Wavelength Range: VSWIR
+Origin: Unknown.
+Collection Date: N/A
+Description: Particle size was 45-125um. Collected by: JPL Original ASTER Spectral Library name was jpl.perkin.mineral.silicate.tectosilicate.medium.ts17a.spectrum.txt
+Mineral:  Microcline (Feldspar) (K,Na)AlSi_3O_8
+
+File Name:  ts17a.txt
+
+XRD Analysis:  Microcline(A)
+
+Chemical Analysis:
+from electron microprobe (K_0.97Na_0.03)Si_3AlO_8
